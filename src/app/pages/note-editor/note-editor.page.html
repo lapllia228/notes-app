@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Редагування</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="saveAndExit()">
+        <ion-icon name="checkmark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="editor-container" *ngIf="note">
+    <ion-input
+      [(ngModel)]="note.title"
+      (ionChange)="onContentChange()"
+      placeholder="Заголовок нотатки"
+      class="title-input">
+    </ion-input>
+
+    <ion-textarea
+      [(ngModel)]="note.content"
+      (ionChange)="onContentChange()"
+      placeholder="Почніть писати..."
+      [autoGrow]="true"
+      rows="20"
+      class="content-textarea">
+    </ion-textarea>
+  </div>
+</ion-content>
